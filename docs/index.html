@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RoMem models time as continuous phase rotation for temporal knowledge graphs and agentic memory. EMNLP 2026 Main Conference.">
+  <meta name="theme-color" content="#101827">
+  <meta property="og:title" content="RoMem — Time is Not a Label">
+  <meta property="og:description" content="Continuous Phase Rotation for Temporal Knowledge Graphs and Agentic Memory.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tencent.github.io/RoMem/">
+  <meta property="og:image" content="https://tencent.github.io/RoMem/static/images/romem-overview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>RoMem — Time is Not a Label</title>
+  <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand" href="#top" aria-label="RoMem home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span>RoMem</span>
+    </a>
+    <div class="nav-links">
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#citation">Citation</a>
+      <a class="nav-code" href="https://github.com/Tencent/RoMem">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation">
+      <span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#citation">Citation</a>
+    <a href="https://github.com/Tencent/RoMem">GitHub ↗</a>
+  </div>
+
+  <main id="main">
+    <header class="hero" id="top">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-copy reveal">
+        <a class="venue-pill" href="https://2026.emnlp.org/" target="_blank" rel="noreferrer">
+          <span class="pulse-dot"></span>
+          EMNLP 2026 · Main Conference
+        </a>
+        <p class="eyebrow">Temporal knowledge graphs × agentic memory</p>
+        <h1>Time is Not<br><em>a Label.</em></h1>
+        <p class="hero-subtitle">Continuous Phase Rotation for Temporal Knowledge Graphs and Agentic Memory</p>
+
+        <div class="authors" aria-label="Authors">
+          <a href="https://waylonli.com/" target="_blank" rel="noreferrer">Weixian Waylon Li</a>
+          <a href="https://knightzhang625.github.io/" target="_blank" rel="noreferrer">Jiaxin Zhang</a>
+          <span>Xianan Jim Yang</span>
+          <a href="https://www.research.ed.ac.uk/en/persons/tiejun-ma/" target="_blank" rel="noreferrer">Tiejun Ma</a>
+          <a href="https://yiwenguo.github.io/" target="_blank" rel="noreferrer">Yiwen Guo</a>
+        </div>
+        <p class="affiliations">University of Edinburgh · LIGHTSPEED · University of St Andrews</p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://arxiv.org/abs/2604.11544" target="_blank" rel="noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 3.5h8L18 7v13.5H6.5zM14 3.5V8h4M9 12h6M9 15h6"/></svg>
+            Paper
+          </a>
+          <a class="button button-ghost" href="https://github.com/Tencent/RoMem" target="_blank" rel="noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2.75a9.25 9.25 0 0 0-2.93 18.03c.46.08.63-.2.63-.44v-1.8c-2.57.56-3.11-1.1-3.11-1.1-.42-1.08-1.03-1.36-1.03-1.36-.84-.58.06-.57.06-.57.93.07 1.42.96 1.42.96.83 1.42 2.17 1.01 2.7.77.08-.6.32-1.01.59-1.25-2.05-.23-4.21-1.03-4.21-4.57 0-1.01.36-1.84.95-2.49-.1-.23-.41-1.18.09-2.45 0 0 .77-.25 2.54.95A8.8 8.8 0 0 1 12 7.06a8.8 8.8 0 0 1 2.31.31c1.76-1.2 2.54-.95 2.54-.95.5 1.27.19 2.22.09 2.45.59.65.95 1.48.95 2.49 0 3.56-2.17 4.33-4.23 4.56.33.29.63.85.63 1.72v2.7c0 .25.17.53.64.44A9.25 9.25 0 0 0 12 2.75Z"/></svg>
+            Code
+          </a>
+          <a class="button button-text" href="#demo">See it rotate <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero-demo reveal" id="demo" data-mode="past" aria-label="Interactive geometric shadowing demonstration">
+        <div class="demo-topbar">
+          <div>
+            <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="demo-label">Query-time geometry</span>
+          </div>
+          <span class="live-label"><i></i> Interactive</span>
+        </div>
+
+        <div class="query-row">
+          <span>Who was US president in</span>
+          <div class="time-switch" role="group" aria-label="Select query time">
+            <button type="button" class="time-option is-active" data-time="past" aria-pressed="true">2010</button>
+            <button type="button" class="time-option" data-time="current" aria-pressed="false">2026</button>
+          </div>
+          <span>?</span>
+        </div>
+
+        <div class="phase-stage" aria-hidden="true">
+          <div class="axis axis-x"></div>
+          <div class="axis axis-y"></div>
+          <div class="orbit orbit-outer"></div>
+          <div class="orbit orbit-inner"></div>
+          <div class="query-beam"><i></i><span>query phase</span></div>
+          <div class="origin"><span></span></div>
+          <div class="phase-fact fact-obama">
+            <i></i><span>Obama</span><small>2009</small>
+          </div>
+          <div class="phase-fact fact-trump">
+            <i></i><span>Trump</span><small>2025</small>
+          </div>
+          <div class="phase-shadow shadow-obama">shadowed</div>
+          <div class="phase-shadow shadow-trump">shadowed</div>
+        </div>
+
+        <div class="demo-output">
+          <div class="winner-row">
+            <span>Top-ranked memory</span>
+            <strong class="winner-name">Obama <i>aligned</i></strong>
+          </div>
+          <div class="score-row">
+            <span>Obama</span><div class="score-track"><i class="score-obama"></i></div><b class="score-obama-value">0.92</b>
+          </div>
+          <div class="score-row">
+            <span>Trump</span><div class="score-track"><i class="score-trump"></i></div><b class="score-trump-value">0.24</b>
+          </div>
+        </div>
+        <p class="demo-note">Illustration of phase alignment; scores are schematic.</p>
+      </div>
+
+      <div class="hero-metrics reveal">
+        <div><strong>72.6</strong><span>MRR on ICEWS05-15</span></div>
+        <div><strong>2–3×</strong><span>MultiTQ MRR &amp; accuracy</span></div>
+        <div><strong>0</strong><span>facts destructively deleted</span></div>
+        <div><strong>1</strong><span>frozen semantic gate</span></div>
+      </div>
+    </header>
+
+    <section class="news-strip" aria-label="News">
+      <div class="section-shell news-inner reveal">
+        <span class="news-heading">News</span>
+        <time datetime="2026-08">Aug 2026</time>
+        <p>RoMem is accepted to the <strong>EMNLP 2026 Main Conference</strong>.</p>
+        <a href="https://2026.emnlp.org/" target="_blank" rel="noreferrer">Conference ↗</a>
+      </div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="section-shell split-heading reveal">
+        <div>
+          <p class="section-kicker">The static–dynamic dilemma</p>
+          <h2>Memory should know<br><em>what changes.</em></h2>
+        </div>
+        <div class="section-lead">
+          <p>Most graph memories treat time as a timestamp attached to a fact. The timestamp says <em>when</em> something was stored, but not whether the relation should remain stable or evolve.</p>
+          <p>Recency sorting can bury permanent knowledge. Overwriting destroys history. Per-ingestion LLM arbitration adds a costly decision to every update.</p>
+        </div>
+      </div>
+
+      <div class="section-shell dilemma-grid reveal">
+        <article class="dilemma-card static-card">
+          <span class="card-index">01</span>
+          <div class="mini-gate closed"><i></i><b></b></div>
+          <p class="mono-label">α<sub>born_in</sub> ≈ 0</p>
+          <h3>Persistent relations<br>stay in phase.</h3>
+          <div class="fact-stack">
+            <span>(Obama, born_in, Hawaii)</span>
+            <span>stable across query time</span>
+          </div>
+        </article>
+        <article class="dilemma-card dynamic-card">
+          <span class="card-index">02</span>
+          <div class="mini-gate open"><i></i><b></b></div>
+          <p class="mono-label">α<sub>president_of</sub> → 1</p>
+          <h3>Evolving relations<br>rotate with time.</h3>
+          <div class="fact-stack">
+            <span>(Obama, president_of, US)</span>
+            <span>shadowed when obsolete</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section method-section" id="method">
+      <div class="section-shell reveal">
+        <p class="section-kicker light">The method</p>
+        <div class="method-heading">
+          <h2>Time becomes a<br><em>geometric operator.</em></h2>
+          <div class="equation" aria-label="theta r of tau equals tau times s times omega times alpha r">
+            <span>θ<sub>r</sub>(τ)</span><i>=</i><span>τ · s · ω · α<sub>r</sub></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-shell method-cards reveal">
+        <article>
+          <span class="method-number">01</span>
+          <div class="method-icon rotation-icon" aria-hidden="true"><i></i><b></b></div>
+          <h3>Functional continuous time</h3>
+          <p>A timestamp is evaluated through a continuous phase function rather than a learned lookup, including at unseen times.</p>
+        </article>
+        <article>
+          <span class="method-number">02</span>
+          <div class="method-icon gate-icon" aria-hidden="true"><i></i><b></b><em></em></div>
+          <h3>Semantic Speed Gate</h3>
+          <p>A pretrained MLP maps relation text embeddings to rotation speeds, transferring volatility signals to unseen relations.</p>
+        </article>
+        <article>
+          <span class="method-number">03</span>
+          <div class="method-icon shadow-icon" aria-hidden="true"><i></i><b></b><em></em></div>
+          <h3>Geometric shadowing</h3>
+          <p>At query time, obsolete facts rotate out of alignment and rank below temporally valid facts—without deleting history.</p>
+        </article>
+      </div>
+
+      <figure class="section-shell paper-figure reveal">
+        <div class="figure-frame">
+          <img src="static/images/romem-overview.png" alt="Overview of RoMem functional rotation, semantic speed gate, training pipeline, and query-time retrieval modes" loading="lazy">
+        </div>
+        <figcaption><span>Figure 1</span> RoMem combines continuous phase rotation, a relation-conditioned speed gate, two-phase training, and temporal reranking.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section results-section" id="results">
+      <div class="section-shell split-heading reveal">
+        <div>
+          <p class="section-kicker">Results</p>
+          <h2>Temporal gains.<br><em>Static memory intact.</em></h2>
+        </div>
+        <div class="section-lead">
+          <p>RoMem improves temporal knowledge graph completion and temporal agentic memory while preserving retrieval on largely non-temporal memory.</p>
+          <p class="results-config">Agentic-memory numbers below use GPT-5-mini with text-embedding-3-small.</p>
+        </div>
+      </div>
+
+      <div class="section-shell benchmark-grid reveal">
+        <article class="benchmark-card featured">
+          <div class="benchmark-top"><span>ICEWS05-15</span><small>TKGE</small></div>
+          <strong>72.6</strong>
+          <p>MRR · RoMem-ChronoR</p>
+          <div class="delta positive">+4.2 over ChronoR</div>
+        </article>
+        <article class="benchmark-card">
+          <div class="benchmark-top"><span>MultiTQ</span><small>Temporal</small></div>
+          <strong>0.337</strong>
+          <p>MRR · RoMem</p>
+          <div class="compare-line"><i style="--value: 60%"></i><span>HippoRAG 0.203</span></div>
+        </article>
+        <article class="benchmark-card">
+          <div class="benchmark-top"><span>LoCoMo</span><small>Hybrid</small></div>
+          <strong>0.857</strong>
+          <p>Average Recall@10</p>
+          <div class="compare-line"><i style="--value: 81%"></i><span>HippoRAG 0.815</span></div>
+        </article>
+        <article class="benchmark-card">
+          <div class="benchmark-top"><span>DMR-MSC</span><small>Static</small></div>
+          <strong>0.856</strong>
+          <p>MRR · RoMem</p>
+          <div class="delta stable">No degradation</div>
+        </article>
+        <article class="benchmark-card">
+          <div class="benchmark-top"><span>FinTMMBench</span><small>Unseen domain</small></div>
+          <strong>0.728</strong>
+          <p>MRR · frozen gate</p>
+          <div class="compare-line"><i style="--value: 95%"></i><span>HippoRAG 0.690</span></div>
+        </article>
+      </div>
+
+      <div class="section-shell results-visuals">
+        <figure class="chart-card wide reveal">
+          <div class="chart-heading">
+            <div><span>Across temporal complexity</span><h3>One reranker, three memory regimes.</h3></div>
+            <small>Higher is better ↑</small>
+          </div>
+          <img src="static/images/results.png" alt="Bar chart comparing RoMem against memory baselines on MultiTQ, LoCoMo, and DMR-MSC" loading="lazy">
+        </figure>
+        <figure class="chart-card reveal">
+          <div class="chart-heading">
+            <div><span>Geometric shadowing</span><h3>Rankings cross as time moves.</h3></div>
+          </div>
+          <img src="static/images/score-crossover.png" alt="Temporal knowledge graph scores for two candidate facts crossing around 2009" loading="lazy">
+          <figcaption>The query-time score shifts from Blair to Xi as the temporal phase advances.</figcaption>
+        </figure>
+        <aside class="finding-card reveal">
+          <p class="mono-label">Controlled ablation · MultiTQ</p>
+          <h3>The geometry does the work.</h3>
+          <ul>
+            <li><span>Full RoMem</span><strong>0.3371</strong></li>
+            <li><span>w/o time contrastive</span><strong>0.3254</strong></li>
+            <li><span>w/o semantic gate</span><strong>0.1044</strong></li>
+            <li><span>discrete time</span><strong>0.0452</strong></li>
+          </ul>
+          <p>Functional time and semantic gating provide the main inductive biases; time contrastive learning adds a smaller refinement.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section code-section" id="code">
+      <div class="section-shell code-grid reveal">
+        <div class="code-copy">
+          <p class="section-kicker light">Use RoMem</p>
+          <h2>Temporal memory,<br><em>three lines at a time.</em></h2>
+          <p>Use the high-level memory wrapper or add the temporal reranker to an existing graph retrieval pipeline.</p>
+          <a class="button button-light" href="https://github.com/Tencent/RoMem#quick-start" target="_blank" rel="noreferrer">Read the quick start <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="code-window">
+          <div class="code-topbar"><span><i></i><i></i><i></i></span><b>quickstart.py</b><button class="copy-code" type="button" data-copy-target="quickstart-code">Copy</button></div>
+          <pre><code id="quickstart-code"><span class="token-keyword">from</span> romem <span class="token-keyword">import</span> RoMemLLM
+
+memory = <span class="token-class">RoMemLLM</span>(
+    llm=<span class="token-string">"gpt-4o-mini"</span>,
+    embedding=<span class="token-string">"text-embedding-3-small"</span>,
+    save_dir=<span class="token-string">"./my_memory"</span>,
+)
+
+memory.<span class="token-fn">add</span>(<span class="token-string">"Obama was president from 2009 to 2017."</span>,
+           timestamp=<span class="token-string">"2017-01-20"</span>)
+memory.<span class="token-fn">add</span>(<span class="token-string">"Trump became president in January 2025."</span>,
+           timestamp=<span class="token-string">"2025-01-20"</span>)
+
+memory.<span class="token-fn">ask</span>(<span class="token-string">"Who was president in 2010?"</span>)
+<span class="token-comment"># → Obama</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section abstract-section" id="paper">
+      <div class="section-shell abstract-grid reveal">
+        <div>
+          <p class="section-kicker">Paper</p>
+          <h2>Abstract</h2>
+        </div>
+        <div class="abstract-copy">
+          <p>Structured memory representations such as knowledge graphs are central to autonomous agents and other long-lived systems. However, most approaches model time as discrete metadata: recency sorting can bury old-yet-permanent knowledge, overwriting loses history, and LLM arbitration adds an expensive call at every ingestion step.</p>
+          <p>RoMem instead maps relation semantics to a volatility score and combines it with continuous phase rotation. This produces <em>geometric shadowing</em>: obsolete facts rotate out of alignment, so temporally correct facts outrank contradictions without deletion. RoMem reaches 72.6 MRR on ICEWS05-15, improves temporal agentic memory, preserves static memory, and transfers its frozen gate to an unseen financial domain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section citation-section" id="citation">
+      <div class="section-shell citation-grid reveal">
+        <div>
+          <p class="section-kicker">Reference</p>
+          <h2>Cite RoMem</h2>
+          <p>If RoMem helps your research, please cite the paper.</p>
+        </div>
+        <div class="citation-box">
+          <button class="copy-citation" type="button" data-copy-target="bibtex">Copy BibTeX</button>
+          <pre><code id="bibtex">@misc{li2026timelabelcontinuousphase,
+  title        = {Time is Not a Label: Continuous Phase Rotation
+                  for Temporal Knowledge Graphs and Agentic Memory},
+  author       = {Weixian Waylon Li and Jiaxin Zhang and
+                  Xianan Jim Yang and Tiejun Ma and Yiwen Guo},
+  year         = {2026},
+  eprint       = {2604.11544},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  url          = {https://arxiv.org/abs/2604.11544}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-shell footer-inner">
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><strong>RoMem</strong><p>Time is not a label. It is geometry.</p></div>
+      <div class="footer-links"><a href="https://arxiv.org/abs/2604.11544">Paper</a><a href="https://github.com/Tencent/RoMem">Code</a><a href="#top">Back to top ↑</a></div>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

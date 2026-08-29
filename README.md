@@ -2,11 +2,22 @@
 
 **Continuous Phase Rotation and Geometric Shadowing for Agentic Memory**
 
-[//]: # ([![Paper]&#40;https://img.shields.io/badge/arXiv-Paper-blue&#41;]&#40;&#41;)
-[//]: # ([![Python 3.10+]&#40;https://img.shields.io/badge/python-3.10%2B-green&#41;]&#40;&#41;)
-[//]: # ([![License]&#40;https://img.shields.io/badge/license-MIT-lightgrey&#41;]&#40;&#41;)
+[![EMNLP 2026](https://img.shields.io/badge/EMNLP_2026-Main_Conference-8A2D3C.svg)](https://2026.emnlp.org/)
+[![arXiv](https://img.shields.io/badge/arXiv-2604.11544-b31b1b.svg)](https://arxiv.org/abs/2604.11544)
+[![Project Page](https://img.shields.io/badge/Project-Page-2B7A78.svg)](https://tencent.github.io/RoMem/)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![GitHub stars](https://img.shields.io/github/stars/Tencent/RoMem?style=flat&logo=github)](https://github.com/Tencent/RoMem/stargazers)
 
 RoMem is a temporal memory framework that internalises time as a geometric physical law rather than a discrete label. It employs continuous phase rotation in complex vector space and a pretrained **Semantic Speed Gate** to separate static truths from dynamic events — enabling agentic memory systems to resolve temporal contradictions without destructive deletion.
+
+[[Paper](https://arxiv.org/abs/2604.11544)] [[Project Page](https://tencent.github.io/RoMem/)] [[Code](https://github.com/Tencent/RoMem)]
+
+---
+
+## News
+
+- **August 2026** — 🎉 RoMem was accepted to the **EMNLP 2026 Main Conference**.
+- **April 2026** — The [paper](https://arxiv.org/abs/2604.11544) was released on arXiv.
 
 ---
 
@@ -20,7 +31,7 @@ Most agentic memory systems treat knowledge as a static snapshot, leading to cat
 
 3. **Geometric Shadowing** — Obsolete facts are rotated out of phase at query time, causing the temporally correct fact to naturally outrank contradictions — without deletion.
 
-For full details, see our [paper]().
+For full details, see our [paper](https://arxiv.org/abs/2604.11544) or visit the [project page](https://tencent.github.io/RoMem/).
 
 ---
 
