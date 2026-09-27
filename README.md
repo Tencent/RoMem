@@ -16,6 +16,7 @@ RoMem is a temporal memory framework that internalises time as a geometric physi
 
 ## News
 
+- **September 2026** — 🎉 RoMem has been selected for an **oral presentation** at EMNLP 2026!
 - **August 2026** — 🎉 RoMem was accepted to the **EMNLP 2026 Main Conference**.
 - **April 2026** — The [paper](https://arxiv.org/abs/2604.11544) was released on arXiv.
 
